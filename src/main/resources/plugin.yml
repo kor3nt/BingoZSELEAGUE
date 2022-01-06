@@ -1,0 +1,5 @@
+name: Bingo
+version: '${project.version}'
+main: me.duoly.bingo.Main
+api-version: 1.18
+authors: [ Klaudiusz kor3nt Jędrzejczyk, Patryk Misiris Grzesik, Patryk P3CZRI6 Jędrzejczyk ]

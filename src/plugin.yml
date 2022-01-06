@@ -1,0 +1,6 @@
+main: com.Duoly.ZseBingo.Main
+name: ZseBingo
+version: 1.0
+author: Patryk F4s0la Grzesik, Klaudiusz Kor3nt Jedrzejczyk
+commands:
+  komenda:

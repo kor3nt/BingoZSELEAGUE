@@ -1,5 +1,10 @@
 name: Bingo
-version: '${project.version}'
+version: 1.0.0
 main: me.duoly.bingo.Main
 api-version: 1.18
 authors: [ Klaudiusz kor3nt Jędrzejczyk, Patryk Misiris Grzesik, Patryk P3CZRI6 Jędrzejczyk ]
+commands:
+  druzyna:
+    permission: bingo.teamAdmin
+  party:
+    permission: bingo.party

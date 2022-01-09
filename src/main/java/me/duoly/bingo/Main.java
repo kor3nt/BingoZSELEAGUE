@@ -1,10 +1,6 @@
 package me.duoly.bingo;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.*;
@@ -28,9 +24,9 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        Party party = new Party();
-        getCommand("druzyna").setExecutor(party);
-        getCommand("party").setExecutor(party);
+
+        getCommand("druzyna").setExecutor(new TeamCommands());
+        getCommand("party").setExecutor(new PartyCommands());
     }
 
     @Override

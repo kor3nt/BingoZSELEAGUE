@@ -9,3 +9,5 @@ commands:
     permission: bingo.party
   admin:
     permission: admin.start
+  generate:
+    permission: admin.generate

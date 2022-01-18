@@ -30,6 +30,9 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("druzyna").setExecutor(new TeamCommands());
         getCommand("party").setExecutor(new PartyCommands());
         getCommand("admin").setExecutor(new AdminStart(config));
+
+        getServer().getPluginManager().registerEvents(this, this);
+        getCommand("generate").setExecutor(new TaskGui(this));
     }
 
     @Override

@@ -2,6 +2,7 @@ name: Bingo
 version: 1.0.0
 main: me.duoly.bingo.Main
 authors: [ Klaudiusz kor3nt Jędrzejczyk, Patryk Misiris Grzesik, Patryk P3CZRI6 Jędrzejczyk ]
+api-version: 1.17
 commands:
   druzyna:
     permission: bingo.teamAdmin

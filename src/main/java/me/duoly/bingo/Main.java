@@ -1,13 +1,8 @@
 package me.duoly.bingo;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scoreboard.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +10,16 @@ import java.util.List;
 public final class Main extends JavaPlugin implements Listener {
     FileConfiguration config = getConfig();
 
+
     //Druzyna 1
     public static String CapitanA;
     public static List<String> TeamA = new ArrayList<String>();
+    public static String tagNameA;
 
     //Druzyna 2
     public static String CapitanB;
     public static List<String> TeamB = new ArrayList<String>();
-
+    public static String tagNameB;
 
 
     @Override
@@ -39,16 +36,4 @@ public final class Main extends JavaPlugin implements Listener {
     public void onDisable() {
         // Plugin shutdown logic
     }
-
-//    public void onJoinScoreboards(PlayerJoinEvent event) {
-//            Player player = event.getPlayer();
-//            ScoreboardManager manager = Bukkit.getScoreboardManager();
-//            Scoreboard board = manager.getNewScoreboard();
-//            player.setScoreboard(board);
-//
-//            scoreTeamA = board.registerNewTeam("teamA");
-//            scoreTeamB =
-//
-//
-//    }
 }

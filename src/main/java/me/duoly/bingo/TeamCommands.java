@@ -13,14 +13,14 @@ public class TeamCommands implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("druzyna")) {
             Player admin = (Player) sender;
             if (args.length == 0) {
-                admin.sendMessage(ChatColor.YELLOW + "/druzyna add <teamA/teamB> <nick>" + ChatColor.WHITE + " - dodaje gracza na kapitana");
-                admin.sendMessage(ChatColor.YELLOW + "/druzyna show" + ChatColor.WHITE + " - pokazuje kapitanów");
+                admin.sendMessage(ChatColor.YELLOW + "/druzyna ustaw <teamA/teamB> <nick>" + ChatColor.WHITE + " - dodaje gracza na kapitana");
+                admin.sendMessage(ChatColor.YELLOW + "/druzyna pokaz" + ChatColor.WHITE + " - pokazuje kapitanów");
                 return true;
             }
 
-            if (args[0].equalsIgnoreCase("add")) {
+            if (args[0].equalsIgnoreCase("ustaw")) {
                 if (args.length == 1) {
-                    admin.sendMessage(ChatColor.RED + "Poprawne użycie: /druzyna add <teamA/teamB> <nick>");
+                    admin.sendMessage(ChatColor.RED + "Poprawne użycie: /druzyna ustaw <teamA/teamB> <nick>");
                     return true;
                 }
 
@@ -33,7 +33,7 @@ public class TeamCommands implements CommandExecutor {
                         return true;
                     }
 
-                    admin.sendMessage(ChatColor.RED + "Poprawne użycie: /druzyna add <teamA/teamB> <nick>");
+                    admin.sendMessage(ChatColor.RED + "Poprawne użycie: /druzyna ustaw <teamA/teamB> <nick>");
                     return true;
                 }
                 else if (args[1].equalsIgnoreCase("teamB")) {
@@ -45,11 +45,11 @@ public class TeamCommands implements CommandExecutor {
                         return true;
                     }
 
-                    admin.sendMessage(ChatColor.RED + "Poprawne użycie: /druzyna add <teamA/teamB> <nick>");
+                    admin.sendMessage(ChatColor.RED + "Poprawne użycie: /druzyna ustaw <teamA/teamB> <nick>");
                     return true;
                 }
             }
-            else if (args[0].equalsIgnoreCase("show")) {
+            else if (args[0].equalsIgnoreCase("pokaz")) {
                 admin.sendMessage(ChatColor.AQUA + "TEAM A: ");
                 for(int i = 0; i< Main.TeamA.size() ; i++){
                     admin.sendMessage(ChatColor.WHITE + Main.TeamA.get(i));
@@ -62,9 +62,10 @@ public class TeamCommands implements CommandExecutor {
 
                 return true;
             }
+
             else {
-                admin.sendMessage(ChatColor.YELLOW + "/druzyna add <teamA/teamB> <nick>" + ChatColor.WHITE + " - dodaje gracza na kapitana");
-                admin.sendMessage(ChatColor.YELLOW + "/druzyna show" + ChatColor.WHITE + " - pokazuje kapitanów");
+                admin.sendMessage(ChatColor.YELLOW + "/druzyna ustaw <teamA/teamB> <nick>" + ChatColor.WHITE + " - dodaje gracza na kapitana");
+                admin.sendMessage(ChatColor.YELLOW + "/druzyna pokaz" + ChatColor.WHITE + " - pokazuje kapitanów");
                 return true;
             }
         }

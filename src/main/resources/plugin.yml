@@ -7,3 +7,5 @@ commands:
     permission: bingo.teamAdmin
   party:
     permission: bingo.party
+  admin:
+    permission: admin.start

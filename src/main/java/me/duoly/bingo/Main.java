@@ -8,8 +8,9 @@ public final class Main extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
-    }
 
+        getCommand("generate").setExecutor(new TaskGui(this));
+    }
     @Override
     public void onDisable() {
         // Plugin shutdown logic

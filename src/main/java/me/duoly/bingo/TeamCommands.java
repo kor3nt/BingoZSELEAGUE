@@ -29,7 +29,6 @@ public class TeamCommands implements CommandExecutor {
                     if (player != null && player.isOnline()) {
                         Main.CapitanA = args[2];
                         Main.TeamA.add(Main.CapitanA);
-                        Main.scoreTeamA.addEntry(Main.CapitanA);
                         admin.sendMessage(ChatColor.GREEN + "Pomyślnie dodałes kapitana teamu A");
                         return true;
                     }
@@ -42,7 +41,6 @@ public class TeamCommands implements CommandExecutor {
                     if (player != null && player.isOnline()) {
                         Main.CapitanB = args[2];
                         Main.TeamB.add(Main.CapitanB);
-                        Main.scoreTeamB.addEntry(Main.CapitanB);
                         admin.sendMessage(ChatColor.GREEN + "Pomyślnie dodałes kapitana teamu B");
                         return true;
                     }
@@ -52,8 +50,16 @@ public class TeamCommands implements CommandExecutor {
                 }
             }
             else if (args[0].equalsIgnoreCase("show")) {
-                admin.sendMessage(ChatColor.AQUA + "TEAM A: " + ChatColor.WHITE + Main.CapitanA);
-                admin.sendMessage(ChatColor.AQUA + "TEAM B: " + ChatColor.WHITE + Main.CapitanB);
+                admin.sendMessage(ChatColor.AQUA + "TEAM A: ");
+                for(int i = 0; i< Main.TeamA.size() ; i++){
+                    admin.sendMessage(ChatColor.WHITE + Main.TeamA.get(i));
+                }
+
+                admin.sendMessage(ChatColor.AQUA + "TEAM B: ");
+                for(int i = 0; i< Main.TeamA.size() ; i++){
+                    admin.sendMessage(ChatColor.WHITE + Main.TeamB.get(i));
+                }
+
                 return true;
             }
             else {

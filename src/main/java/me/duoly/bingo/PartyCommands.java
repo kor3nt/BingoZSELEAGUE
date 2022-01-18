@@ -6,13 +6,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.scoreboard.Objective;
-import org.bukkit.scoreboard.Score;
 
 public class PartyCommands implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args ){
-        setScoreBoard((Player) sender);
         //user - komendy party
         if(command.getName().equalsIgnoreCase("party")){
             Player player = (Player) sender;
@@ -38,7 +35,6 @@ public class PartyCommands implements CommandExecutor {
                     Player invitedPlayer = Bukkit.getPlayer(args[1]);
                     if(invitedPlayer != null && invitedPlayer.isOnline()){
                         Main.TeamA.add(invitedPlayer.getName());
-                        Main.scoreTeamA.addEntry(args[1]);
                         player.sendMessage(ChatColor.GREEN + "Dodałeś gracza " + invitedPlayer.getName() + "do party");
                         return true;
                     }
@@ -53,7 +49,6 @@ public class PartyCommands implements CommandExecutor {
                     Player invitedPlayer = Bukkit.getPlayer(args[1]);
                     if(invitedPlayer != null && invitedPlayer.isOnline()){
                         Main.TeamB.add(invitedPlayer.getName());
-                        Main.scoreTeamB.addEntry(args[1]);
                         player.sendMessage(ChatColor.GREEN + "Dodałeś gracza " + invitedPlayer.getName() + "do party");
                         return true;
                     }
@@ -73,13 +68,11 @@ public class PartyCommands implements CommandExecutor {
                 }
 
                 if(player.getName().equalsIgnoreCase(Main.CapitanA)){
-                    Player removedPlayer = Bukkit.getPlayer(args[1]);
-                    if(Main.TeamA.contains(removedPlayer.getName())){
-                        if(removedPlayer.getName().equalsIgnoreCase(Main.CapitanA)){
+                    if(Main.TeamA.contains(args[1])){
+                        if(args[1].equalsIgnoreCase(Main.CapitanA)){
                             player.sendMessage(ChatColor.RED + "Nie możesz usunąć samego siebie!");
                         }
-                        Main.TeamA.remove(removedPlayer.getName());
-                        Main.scoreTeamA.removeEntry(args[1]);
+                        Main.TeamA.remove(args[1]);
                         player.sendMessage(ChatColor.GREEN + "Usunąłeś gracza z party!");
                     }
                     else{
@@ -88,13 +81,11 @@ public class PartyCommands implements CommandExecutor {
                     return true;
                 }
                 else if(player.getName().equalsIgnoreCase(Main.CapitanB)){
-                    Player removedPlayer = Bukkit.getPlayer(args[1]);
-                    if(Main.TeamB.contains(removedPlayer.getName())){
-                        if(removedPlayer.getName().equalsIgnoreCase(Main.CapitanB)){
+                    if(Main.TeamB.contains(args[1])){
+                        if(args[1].equalsIgnoreCase(Main.CapitanB)){
                             player.sendMessage(ChatColor.RED + "Nie możesz usunąć samego siebie!");
                         }
-                        Main.TeamB.remove(removedPlayer.getName());
-                        Main.scoreTeamB.removeEntry(args[1]);
+                        Main.TeamB.remove(args[1]);
                         player.sendMessage(ChatColor.GREEN + "Usunąłeś gracza z party!");
                     }
                     else{
@@ -131,10 +122,4 @@ public class PartyCommands implements CommandExecutor {
         return true;
     }
 
-    public void setScoreBoard(Player player){
-        Objective o = Main.board.registerNewObjective("ServerName", "dummy", "Test Server");
-        Score score  = o.getScore(ChatColor.GOLD + "Money: $" + ChatColor.GREEN + 1000);
-        score.setScore(3);
-        player.setScoreboard(Main.board);
-    }
 }

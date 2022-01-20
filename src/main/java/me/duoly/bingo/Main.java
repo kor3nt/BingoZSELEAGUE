@@ -10,6 +10,7 @@ import java.util.List;
 public final class Main extends JavaPlugin implements Listener {
     FileConfiguration config = getConfig();
 
+    public static Boolean gameStart = false;
 
     //Druzyna 1
     public static String CapitanA;
@@ -30,6 +31,7 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("druzyna").setExecutor(new TeamCommands());
         getCommand("party").setExecutor(new PartyCommands());
         getCommand("admin").setExecutor(new AdminStart(config));
+        getCommand("rejoin").setExecutor(new Rejoin());
 
         getServer().getPluginManager().registerEvents(this, this);
         getCommand("generate").setExecutor(new TaskGui(this));

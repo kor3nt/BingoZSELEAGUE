@@ -12,3 +12,4 @@ commands:
     permission: admin.start
   generate:
     permission: admin.generate
+  rejoin:

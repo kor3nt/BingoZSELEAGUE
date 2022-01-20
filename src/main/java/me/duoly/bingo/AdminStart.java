@@ -26,26 +26,33 @@ public class AdminStart implements CommandExecutor {
             }
 
             if(args[0].equalsIgnoreCase("start")){
-                if(Main.TeamA.size() == config.getInt("number-of-players") ||
-                        Main.TeamB.size() == config.getInt("number-of-players")) {
-                            for(String nick : Main.TeamA){
-                                Player player = Bukkit.getPlayer(nick);
-                                player.setDisplayName(ChatColor.RED + Main.tagNameA + " " + ChatColor.RESET + player.getName());
-                                player.setPlayerListName(ChatColor.RED + Main.tagNameA + " " + ChatColor.RESET + player.getName());
-                            }
-                            for(String nick : Main.TeamB){
-                                Player player = Bukkit.getPlayer(nick);
-                                player.setDisplayName(ChatColor.BLUE + Main.tagNameB + " " + ChatColor.RESET + player.getName());
-                                player.setPlayerListName(ChatColor.BLUE + Main.tagNameB + " " + ChatColor.RESET + player.getName());
-                            }
-
-                            admin.sendMessage(ChatColor.GREEN + "Mecz sie zaczyna!");
-                    return true;
+                if(!Main.gameStart){
+                    if(Main.TeamA.size() == config.getInt("number-of-players") ||
+                            Main.TeamB.size() == config.getInt("number-of-players")) {
+                        for(String nick : Main.TeamA){
+                            Player player = Bukkit.getPlayer(nick);
+                            player.setDisplayName(ChatColor.RED + Main.tagNameA + " " + ChatColor.RESET + player.getName());
+                            player.setPlayerListName(ChatColor.RED + Main.tagNameA + " " + ChatColor.RESET + player.getName());
+                        }
+                        for(String nick : Main.TeamB){
+                            Player player = Bukkit.getPlayer(nick);
+                            player.setDisplayName(ChatColor.BLUE + Main.tagNameB + " " + ChatColor.RESET + player.getName());
+                            player.setPlayerListName(ChatColor.BLUE + Main.tagNameB + " " + ChatColor.RESET + player.getName());
+                        }
+                        Main.gameStart = true;
+                        admin.sendMessage(ChatColor.GREEN + "Mecz sie zaczyna!");
+                        return true;
+                    }
+                    else{
+                        admin.sendMessage(ChatColor.RED + "Druzyny nie są gotowe!");
+                        return true;
+                    }
                 }
                 else{
-                    admin.sendMessage(ChatColor.RED + "Druzyny nie są gotowe!");
+                    admin.sendMessage(ChatColor.RED + "Mecz już się zaczął!");
                     return true;
                 }
+
             }
             else if(args[0].equalsIgnoreCase("ustaw")){
                 if (args.length == 1) {

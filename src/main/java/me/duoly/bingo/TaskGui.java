@@ -27,8 +27,8 @@ public class TaskGui implements CommandExecutor, Listener {
     }
 
     Inventory inv = Bukkit.createInventory(null, 54, "Zadania");
-    Inventory TaskBlue = Bukkit.createInventory(null, 54, "Zadania");
-    Inventory TaskRed = Bukkit.createInventory(null, 54, "Zadania");
+    public static Inventory TaskBlue = Bukkit.createInventory(null, 54, "Zadania");
+    public static Inventory TaskRed = Bukkit.createInventory(null, 54, "Zadania");
     ItemStack bg = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
     ItemStack close = new ItemStack(Material.BARRIER);
     ItemStack accept = new ItemStack(Material.GREEN_STAINED_GLASS_PANE);
@@ -404,7 +404,7 @@ public class TaskGui implements CommandExecutor, Listener {
         }
 
         if(event.getSlot() == 47){
-            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("Akceptuje plansze")) {
+            if(event.getInventory().equals(inv)) {
                 player.closeInventory();
                 inv.setItem(47, bg);
                 inv.setItem(51, bg);
@@ -416,7 +416,7 @@ public class TaskGui implements CommandExecutor, Listener {
             player.closeInventory();
         }
         else if(event.getSlot() == 51){
-            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("Losuj jeszcze raz")) {
+            if(event.getInventory().equals(inv)) {
                 player.closeInventory();
                 player.performCommand("generate");
             }else event.setCancelled(true);

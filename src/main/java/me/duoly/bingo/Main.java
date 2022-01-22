@@ -33,6 +33,7 @@ public final class Main extends JavaPlugin implements Listener {
 
         getServer().getPluginManager().registerEvents(this, this);
         getCommand("generate").setExecutor(new TaskGui(this));
+        getCommand("zadania").setExecutor(new TasksOpen());
     }
 
     @Override

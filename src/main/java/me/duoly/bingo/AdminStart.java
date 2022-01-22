@@ -40,6 +40,11 @@ public class AdminStart implements CommandExecutor {
                             }
 
                             admin.sendMessage(ChatColor.GREEN + "Mecz sie zaczyna!");
+                        CreateScoreboard scb = new CreateScoreboard();
+                        for(Player player : Bukkit.getOnlinePlayers()){
+                            scb.createScorebord(player);
+                        }
+
                     return true;
                 }
                 else{

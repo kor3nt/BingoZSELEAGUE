@@ -27,8 +27,8 @@ public class TaskGui implements CommandExecutor, Listener {
     }
 
     Inventory inv = Bukkit.createInventory(null, 54, "Zadania");
-    public static Inventory TaskBlue = Bukkit.createInventory(null, 54, "Zadania");
-    public static Inventory TaskRed = Bukkit.createInventory(null, 54, "Zadania");
+    public static Inventory TaskBlue = Bukkit.createInventory(null, 54, "Zadania Blue");
+    public static Inventory TaskRed = Bukkit.createInventory(null, 54, "Zadania Red");
     ItemStack bg = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
     ItemStack close = new ItemStack(Material.BARRIER);
     ItemStack accept = new ItemStack(Material.GREEN_STAINED_GLASS_PANE);
@@ -404,19 +404,22 @@ public class TaskGui implements CommandExecutor, Listener {
         }
 
         if(event.getSlot() == 47){
-            if(event.getInventory().equals(inv)) {
+            if(event.getWhoClicked().isOp()) {
                 player.closeInventory();
                 inv.setItem(47, bg);
                 inv.setItem(51, bg);
-                TaskRed = inv;
-                TaskBlue = inv;
+                ItemStack[] content = inv.getContents();
+                TaskRed.setContents(content);
+                TaskRed.setItem(0,new ItemStack(Material.RED_DYE));
+                TaskBlue.setContents(content);
+                TaskBlue.setItem(0,new ItemStack(Material.BLUE_DYE));
             }else event.setCancelled(true);
         }
         else if(event.getSlot() == 49){
             player.closeInventory();
         }
         else if(event.getSlot() == 51){
-            if(event.getInventory().equals(inv)) {
+            if(event.getWhoClicked().isOp()) {
                 player.closeInventory();
                 player.performCommand("generate");
             }else event.setCancelled(true);

@@ -51,6 +51,7 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("generate").setExecutor(new TaskGui(this));
         getCommand("zadania").setExecutor(new TasksOpen());
         getCommand("world").setExecutor(new CreateWorld());
+        TasksChecking.registerListener(this);
     }
 
     @Override
@@ -61,5 +62,6 @@ public final class Main extends JavaPlugin implements Listener {
         if(BW.exists()){
             deleteDirectory(BW);
         }
+
     }
 }

@@ -71,27 +71,31 @@ public class PartyCommands implements CommandExecutor {
                     if(Main.TeamA.contains(args[1])){
                         if(args[1].equalsIgnoreCase(Main.CapitanA)){
                             player.sendMessage(ChatColor.RED + "Nie możesz usunąć samego siebie!");
+                            return true;
                         }
                         Main.TeamA.remove(args[1]);
                         player.sendMessage(ChatColor.GREEN + "Usunąłeś gracza z party!");
+                        return true;
                     }
                     else{
                         player.sendMessage(ChatColor.RED + "Dany gracz nie znajduje się w party!");
+                        return true;
                     }
-                    return true;
                 }
                 else if(player.getName().equalsIgnoreCase(Main.CapitanB)){
                     if(Main.TeamB.contains(args[1])){
                         if(args[1].equalsIgnoreCase(Main.CapitanB)){
                             player.sendMessage(ChatColor.RED + "Nie możesz usunąć samego siebie!");
+                            return true;
                         }
                         Main.TeamB.remove(args[1]);
                         player.sendMessage(ChatColor.GREEN + "Usunąłeś gracza z party!");
+                        return true;
                     }
                     else{
                         player.sendMessage(ChatColor.RED + "Dany gracz nie znajduje się w party!");
+                        return true;
                     }
-                    return true;
                 }
                 else{
                     player.sendMessage(ChatColor.RED + "Nie jesteś kapitanem!");

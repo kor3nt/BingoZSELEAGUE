@@ -12,13 +12,11 @@ public class TasksOpen implements CommandExecutor, Listener {
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         Player player = (Player) sender;
         if(cmd.getName().equalsIgnoreCase("zadania")){
-            for(int i = 0; i< Main.TeamA.size() ; i++){
-                if(player.getName().equals(Main.TeamA.get(i))){
+                if(Main.TeamA.contains(player.getName())){
                     player.openInventory(TaskGui.TaskRed);
-                }else if(player.getName().equals(Main.TeamB.get(i))){
+                }else if(Main.TeamB.contains(player.getName())){
                     player.openInventory(TaskGui.TaskBlue);
                 }
-            }
         }
         return false;
     }

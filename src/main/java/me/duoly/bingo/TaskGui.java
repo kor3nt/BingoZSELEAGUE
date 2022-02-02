@@ -410,9 +410,8 @@ public class TaskGui implements CommandExecutor, Listener {
                 inv.setItem(51, bg);
                 ItemStack[] content = inv.getContents();
                 TaskRed.setContents(content);
-                TaskRed.setItem(0,new ItemStack(Material.RED_DYE));
                 TaskBlue.setContents(content);
-                TaskBlue.setItem(0,new ItemStack(Material.BLUE_DYE));
+                event.getWhoClicked().sendMessage(ChatColor.GREEN + "Utworzyłeś plansze!");
             }else event.setCancelled(true);
         }
         else if(event.getSlot() == 49){

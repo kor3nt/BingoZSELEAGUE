@@ -51,6 +51,10 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("generate").setExecutor(new TaskGui(this));
         getCommand("zadania").setExecutor(new TasksOpen());
         getCommand("world").setExecutor(new CreateWorld());
+        getCommand("check").setExecutor(new TasksChecking());
+        getCommand("accept").setExecutor(new TasksChecking());
+        getCommand("deny").setExecutor(new TasksChecking());
+
         TasksChecking.registerListener(this);
     }
 

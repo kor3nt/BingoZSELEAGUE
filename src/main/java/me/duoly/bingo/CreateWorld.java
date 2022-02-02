@@ -23,7 +23,7 @@ public class CreateWorld implements CommandExecutor {
 
                 RedWorld = new WorldCreator("RedWorld").seed(seed).environment(World.Environment.NORMAL).type(WorldType.NORMAL).createWorld();
                 BlueWorld = new WorldCreator("BlueWorld").seed(seed).environment(World.Environment.NORMAL).type(WorldType.NORMAL).createWorld();
-
+                commandSender.sendMessage(ChatColor.RED + "Utworzyłeś światy!");
             }else commandSender.sendMessage(ChatColor.RED + "Nie możesz storzyć światu podczas gry!");
 
 

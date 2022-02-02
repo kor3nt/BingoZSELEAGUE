@@ -27,6 +27,8 @@ public class AdminStart implements CommandExecutor {
             }
 
             if (args[0].equalsIgnoreCase("start")) {
+                    if(TaskGui.TaskRed==null){ admin.sendMessage(ChatColor.DARK_RED+"Utwórz plansze!");return false;}
+                    if(CreateWorld.RedWorld==null){ admin.sendMessage(ChatColor.DARK_RED+"Utwórz światy!");return false;}
                     if (!Main.gameStart) {
                         if (Main.TeamA.size() == config.getInt("number-of-players") ||
                                 Main.TeamB.size() == config.getInt("number-of-players")) {

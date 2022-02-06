@@ -13,10 +13,11 @@ import org.bukkit.entity.Player;
 public class AdminStart implements CommandExecutor {
 
     FileConfiguration config;
-    public AdminStart(FileConfiguration config) {
+    private Main plugin;
+    public AdminStart(FileConfiguration config,Main plugin) {
         this.config = config;
+        this.plugin = plugin;
     }
-
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args ) {
         if (command.getName().equalsIgnoreCase("admin")) {
             Player admin = (Player) sender;
@@ -45,6 +46,7 @@ public class AdminStart implements CommandExecutor {
                             Main.gameStart = true;
                             admin.sendMessage(ChatColor.GREEN + "Mecz sie zaczyna!");
                             CreateScoreboard scb = new CreateScoreboard();
+                            Timer timer = new Timer(plugin, config);
                             for (Player player : Bukkit.getOnlinePlayers()) {
                                 scb.createScorebord(player);
                             }
@@ -59,7 +61,9 @@ public class AdminStart implements CommandExecutor {
                                 Player player = Bukkit.getPlayer(nick);
                                 player.teleport(Blueloc);
                             }
-
+                            timer.createBar();
+                            timer.addPlayer();
+                            timer.cast();
                         } else {
                             admin.sendMessage(ChatColor.RED + "Druzyny nie są gotowe!");
                         }

@@ -36,7 +36,7 @@ public final class Main extends JavaPlugin implements Listener {
         }
         return directoryToBeDeleted.delete();
     }
-
+    public Timer bar;
     @Override
     public void onEnable() {
         config.options().copyDefaults(true);
@@ -44,7 +44,7 @@ public final class Main extends JavaPlugin implements Listener {
 
         getCommand("druzyna").setExecutor(new TeamCommands());
         getCommand("party").setExecutor(new PartyCommands());
-        getCommand("admin").setExecutor(new AdminStart(config));
+        getCommand("admin").setExecutor(new AdminStart(config,this));
         getCommand("rejoin").setExecutor(new Rejoin());
 
         getServer().getPluginManager().registerEvents(this, this);
@@ -68,4 +68,7 @@ public final class Main extends JavaPlugin implements Listener {
         }
 
     }
+
+
 }
+

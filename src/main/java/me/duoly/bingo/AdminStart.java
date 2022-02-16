@@ -67,7 +67,7 @@ public class AdminStart implements CommandExecutor {
                                 player.teleport(Blueloc);
                             }
                             timer.createBar();
-                            timer.addPlayer();
+                            for(Player p : Bukkit.getOnlinePlayers())timer.addPlayer(p);
                             timer.cast();
                         } else {
                             admin.sendMessage(ChatColor.RED + "Druzyny nie są gotowe!");

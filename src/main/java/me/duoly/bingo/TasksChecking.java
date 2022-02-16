@@ -2,7 +2,6 @@ package me.duoly.bingo;
 
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -2916,7 +2915,7 @@ public class TasksChecking implements Listener, CommandExecutor {
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     scb.createScorebord(p);
                     if(p.isOp()) {
-                        p.sendMessage(StringUtils.repeat(" \n",200));
+                        for(int i=0;i<=200;i++)p.sendMessage(" ");
                     }
                 }
             }
@@ -2939,7 +2938,7 @@ public class TasksChecking implements Listener, CommandExecutor {
                 }
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     if(p.isOp()) {
-                        p.sendMessage(StringUtils.repeat(" \n",200));
+                        for(int i=0;i<=200;i++)p.sendMessage(" ");
                     }
                 }
             }

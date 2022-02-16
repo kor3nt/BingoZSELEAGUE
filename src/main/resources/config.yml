@@ -1,2 +1,4 @@
 number-of-players: 4
-time-of-game: 10
+time-of-game: 3600
+overtime: 600
+spawn-world: spawn

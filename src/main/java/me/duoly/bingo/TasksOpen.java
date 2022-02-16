@@ -1,5 +1,6 @@
 package me.duoly.bingo;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,6 +12,10 @@ public class TasksOpen implements CommandExecutor, Listener {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         Player player = (Player) sender;
+        if(!Main.gameStart) {
+            player.sendMessage(ChatColor.RED+"Gra się jeszcze nie zaczeła!");
+            return true;
+        }
         if(cmd.getName().equalsIgnoreCase("zadania")){
                 if(Main.TeamA.contains(player.getName())){
                     player.openInventory(TaskGui.TaskRed);

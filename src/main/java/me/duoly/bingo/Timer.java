@@ -2,15 +2,12 @@ package me.duoly.bingo;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Effect;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class Timer{
     private Main plugin;
@@ -37,9 +34,10 @@ public class Timer{
         bar = Bukkit.createBossBar("Pozostały czas: "+timer, BarColor.GREEN, BarStyle.SOLID);
         bar.setVisible(true);
     }
+    double time;
     public void cast(){
             timer = config.getInt("time-of-game");
-            double time = progress/timer;
+            time = progress/timer;
             countID=plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
                 public void run(){
                     if (progress > 0) {
@@ -48,7 +46,6 @@ public class Timer{
                         progress=progress-time;
                         timer--;
                     } else {
-                        Bukkit.broadcastMessage(ChatColor.RED + "Czas się skończył!");
                         Bukkit.getScheduler().cancelTask(countID);
                         bar.setVisible(false);
                     }
@@ -82,19 +79,54 @@ public class Timer{
                         for(String nick : Main.TeamA){
                             Player player = Bukkit.getPlayer(nick);
                             assert player != null;
-                            if(timer<=3)player.sendTitle(ChatColor.RED+"Zostało "+timer+ " sekund"," ",5,30,5 );
-                            else if(timer<=6)player.sendTitle(ChatColor.YELLOW+"Zostało "+timer+ " sekund"," ",5,30,5 );
-                            else if(timer<=10)player.sendTitle(ChatColor.GREEN+"Zostało "+timer+ " sekund"," ",5,30,5 );
+                            if(timer<=3&timer>0){
+                                player.sendTitle(ChatColor.RED+"Zostało "+timer+ " sekund"," ",5,30,5 );
+                                player.playEffect(player.getLocation(), Effect.CLICK1,null);
+                            }
+                            else if(timer<=6&timer>0){
+                                player.sendTitle(ChatColor.YELLOW+"Zostało "+timer+ " sekund"," ",5,30,5 );
+                                player.playEffect(player.getLocation(), Effect.CLICK1,null);
+                            }
+                            else if(timer<=10&timer>0){
+                                player.sendTitle(ChatColor.GREEN+"Zostało "+timer+ " sekund"," ",5,30,5 );
+                                player.playEffect(player.getLocation(), Effect.CLICK1,null);
+                            }
                         }
                         for(String nick : Main.TeamB){
                             Player player = Bukkit.getPlayer(nick);
                             assert player != null;
-                            if(timer<=3)player.sendTitle(ChatColor.RED+"Zostało "+timer+ " sekund"," ",5,30,5 );
-                            else if(timer<=6)player.sendTitle(ChatColor.YELLOW+"Zostało "+timer+ " sekund"," ",5,30,5 );
-                            else if(timer<=10)player.sendTitle(ChatColor.GREEN+"Zostało "+timer+ " sekund"," ",5,30,5 );
+                            if(timer<=3&&timer>0){
+                                player.sendTitle(ChatColor.RED+"Zostało "+timer+ " sekund"," ",5,30,5 );
+                                player.playEffect(player.getLocation(), Effect.CLICK1,null);
+                            }
+                            else if(timer<=6&&timer>0){
+                                player.sendTitle(ChatColor.YELLOW+"Zostało "+timer+ " sekund"," ",5,30,5 );
+                                player.playEffect(player.getLocation(), Effect.CLICK1,null);
+                            }
+                            else if(timer<=10&&timer>0){
+                                player.sendTitle(ChatColor.GREEN+"Zostało "+timer+ " sekund"," ",5,30,5 );
+                                player.playEffect(player.getLocation(), Effect.CLICK1,null);
+                            }
                         }
                     }
+                    EndGame end = new EndGame(plugin);
+                    if (timer==1){
+                        if(TasksChecking.ScoreTeamA==TasksChecking.ScoreTeamB){
+                            timer=config.getInt("overtime");
+                            progress=1.0;
+                            time = progress/timer;
 
+                            for(Player player : Bukkit.getOnlinePlayers()){
+                                player.sendTitle(ChatColor.RED+"Dogrywka!",ChatColor.RED+"Doliczono " + config.getInt("overtime")/60 + " minut",20,40,20);
+                                player.playEffect(player.getLocation(), Effect.ENDERDRAGON_GROWL,null);
+                            }
+                        }else end.End();
+                    }
+                    if (TasksChecking.ScoreTeamA==25 || TasksChecking.ScoreTeamB==25){
+                        Bukkit.getScheduler().cancelTask(countID);
+                        bar.setVisible(false);
+                        end.End();
+                    }
                 }
             }, 0L, 20L);
     }

@@ -19,6 +19,10 @@ public class AdminStart implements CommandExecutor {
         this.plugin = plugin;
     }
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args ) {
+        if(Main.gameStart) {
+            sender.sendMessage(ChatColor.RED+"Nie możesz konfigurować drużyn podczas gry!");
+            return true;
+        }
         if (command.getName().equalsIgnoreCase("admin")) {
             Player admin = (Player) sender;
             if (args.length == 0) {
@@ -44,11 +48,12 @@ public class AdminStart implements CommandExecutor {
                                 player.setPlayerListName(ChatColor.BLUE + Main.tagNameB + " " + ChatColor.RESET + player.getName());
                             }
                             Main.gameStart = true;
-                            admin.sendMessage(ChatColor.GREEN + "Mecz sie zaczyna!");
-                            CreateScoreboard scb = new CreateScoreboard();
+
+                            CreateScoreboard scb = new CreateScoreboard(plugin);
                             Timer timer = new Timer(plugin, config);
                             for (Player player : Bukkit.getOnlinePlayers()) {
                                 scb.createScorebord(player);
+                                player.sendTitle(ChatColor.GREEN + "Mecz sie zaczyna!","Powodzenia!",10,20,10);
                             }
                             Location Redloc = new Location(CreateWorld.RedWorld,CreateWorld.RedWorld.getSpawnLocation().getX(),CreateWorld.RedWorld.getSpawnLocation().getY(),CreateWorld.RedWorld.getSpawnLocation().getZ());
                             Location Blueloc = new Location(CreateWorld.BlueWorld,CreateWorld.BlueWorld.getSpawnLocation().getX(),CreateWorld.BlueWorld.getSpawnLocation().getY(),CreateWorld.BlueWorld.getSpawnLocation().getZ());

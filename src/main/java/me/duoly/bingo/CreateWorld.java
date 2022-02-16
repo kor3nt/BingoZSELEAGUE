@@ -16,6 +16,8 @@ public class CreateWorld implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
+
+
         if(command.getName().equalsIgnoreCase("world")){
             if(!Main.gameStart){
                 Random r = new Random();
@@ -25,8 +27,6 @@ public class CreateWorld implements CommandExecutor {
                 BlueWorld = new WorldCreator("BlueWorld").seed(seed).environment(World.Environment.NORMAL).type(WorldType.NORMAL).createWorld();
                 commandSender.sendMessage(ChatColor.RED + "Utworzyłeś światy!");
             }else commandSender.sendMessage(ChatColor.RED + "Nie możesz storzyć światu podczas gry!");
-
-
         }
 
         return false;

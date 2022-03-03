@@ -2859,7 +2859,7 @@ public class TasksChecking implements Listener, CommandExecutor {
                     }
                 }
             } else return;
-        }
+        }else return;
 
     }
 
@@ -2878,7 +2878,10 @@ public class TasksChecking implements Listener, CommandExecutor {
             accept.setBold(true);
             if(strings[3].equalsIgnoreCase("redworld")) accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/accept "+strings[4]+" RedTeam"));
             else accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/accept "+strings[4]+" BlueTeam"));
+            player.sendMessage(" ");
             player.spigot().sendMessage(accept);
+            player.sendMessage(" ");
+            player.sendMessage(" ");
             TextComponent deny = new TextComponent("Odrzuć zadanie!");
             deny.setBold(true);
             if(strings[3].equalsIgnoreCase("redworld")) deny.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/deny RedTeam"));
@@ -2898,9 +2901,12 @@ public class TasksChecking implements Listener, CommandExecutor {
                             p.sendMessage(ChatColor.GREEN + "Twoja drużyna ukończyła zadanie");
                         }
                     }
-                    for (Player p : Bukkit.getOnlinePlayers()) {
-                        scb.createScorebord(p);
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    scb.createScorebord(p);
+                    if(p.isOp()) {
+                        for(int i=0;i<=200;i++)p.sendMessage(" ");
                     }
+                }
             }else if(strings[1].equalsIgnoreCase("blueteam")) {
                 Integer slot = Integer.parseInt(strings[0]);
                 ScoreTeamB++;
@@ -2926,6 +2932,11 @@ public class TasksChecking implements Listener, CommandExecutor {
                     if (p.isOnline()) {
                         p.sendMessage(ChatColor.DARK_RED + "Admin odrzucił twoje zadanie!");
                         p.sendMessage(ChatColor.DARK_RED + "Musisz je poprwaić!");
+                    }
+                }
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    if(p.isOp()) {
+                        for(int i=0;i<=200;i++)p.sendMessage(" ");
                     }
                 }
             }else if(strings[0].equalsIgnoreCase("blueteam")) {

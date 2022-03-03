@@ -1,21 +1,24 @@
 name: Bingo
-version: 1.0.0
+version: 1.0.1
 main: me.duoly.bingo.Main
 authors: [ Klaudiusz kor3nt Jędrzejczyk, Patryk Misiris Grzesik, Patryk P3CZRI6 Jędrzejczyk ]
 api-version: 1.17
 commands:
+  zadania:
+  rejoin:
+  party:
   druzyna:
     permission: bingo.teamAdmin
-  party:
-    permission: bingo.party
   admin:
     permission: admin.start
   generate:
     permission: admin.generate
-  zadania:
-  rejoin:
   world:
+    permission: admin.generate
   check:
+    permission: admin.generate
   accept:
+    permission: admin.generate
   deny:
+    permission: admin.generate
   pomoc:

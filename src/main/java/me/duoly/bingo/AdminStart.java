@@ -35,8 +35,7 @@ public class AdminStart implements CommandExecutor {
                     if(TaskGui.TaskRed==null){ admin.sendMessage(ChatColor.DARK_RED+"Utwórz plansze!");return false;}
                     if(CreateWorld.RedWorld==null){ admin.sendMessage(ChatColor.DARK_RED+"Utwórz światy!");return false;}
                     if (!Main.gameStart) {
-                        if (Main.TeamA.size() == config.getInt("number-of-players") ||
-                                Main.TeamB.size() == config.getInt("number-of-players")) {
+                        if ((Main.TeamA.size() == config.getInt("number-of-players")) && (Main.TeamB.size() == config.getInt("number-of-players"))) {
                             for (String nick : Main.TeamA) {
                                 Player player = Bukkit.getPlayer(nick);
                                 player.setDisplayName(ChatColor.RED + Main.tagNameA + " " + ChatColor.RESET + player.getName());

@@ -60,10 +60,11 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("check").setExecutor(new TasksChecking(this));
         getCommand("accept").setExecutor(new TasksChecking(this));
         getCommand("deny").setExecutor(new TasksChecking(this));
-        getCommand("pomoc").setExecutor(new Help());
+        getCommand("pomoc").setExecutor(new Help(this,config));
 
         TasksChecking.registerListener(this);
         PlayerJoin.registerListener(this);
+        OnDeathPlayer.registerListener(this);
 
         if(config.get("spawn-world")!=null) SpawnWorld = new WorldCreator((String) config.get("spawn-world")).createWorld();
         else SpawnWorld = new WorldCreator("world").createWorld();

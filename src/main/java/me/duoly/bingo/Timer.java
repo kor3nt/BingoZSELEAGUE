@@ -24,6 +24,7 @@ public class Timer{
     int Rejointimer;
     int countID;
     int RejoincountID;
+    public static boolean dogrywka = false;
     BossBar bar;
     double progress = 1.0;
     double Rejoinprogress = 1.0;
@@ -131,6 +132,7 @@ public class Timer{
                             timer=config.getInt("overtime");
                             progress=1.0;
                             time = progress/timer;
+                            dogrywka=true;
 
                             for(Player player : Bukkit.getOnlinePlayers()){
                                 player.sendTitle(ChatColor.RED+"Dogrywka!",ChatColor.RED+"Doliczono " + config.getInt("overtime")/60 + " minut",20,40,20);

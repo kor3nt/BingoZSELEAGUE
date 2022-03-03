@@ -17,10 +17,13 @@ public class CreateScoreboard {
     private int text=0;
     Stream stream = new Stream(plugin);
 
-
+    EndGame end = new EndGame(plugin);
 
 
     public void createScorebord(Player player){
+        if(Timer.dogrywka){
+            end.End();
+        }
         stream.Scoreboard();
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();

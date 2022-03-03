@@ -11,6 +11,8 @@ import java.io.File;
 public class EndGame{
     File RW = new File("RedWorld");
     File BW = new File("BlueWorld");
+    File RWN = new File("RedWorldNether");
+    File BWN = new File("BlueWorldNether");
     private Main plugin;
     public EndGame(Main plugin) {
         this.plugin = plugin;
@@ -38,15 +40,25 @@ public class EndGame{
             TasksChecking.ScoreTeamB=0;
             TaskGui.TaskRed=null;
             TaskGui.TaskBlue=null;
-            if(RW.exists()){
-                Bukkit.unloadWorld("RedWorld",false);
-                deleteDirectory(RW);
+            player.getInventory().clear();
+        }
+        if(RW.exists()){
+            Bukkit.unloadWorld("RedWorld",false);
+            deleteDirectory(RW);
 
-            }
-            if(BW.exists()){
-                Bukkit.unloadWorld("BlueWorld",false);
-                deleteDirectory(BW);
-            }
+        }
+        if(BW.exists()){
+            Bukkit.unloadWorld("BlueWorld",false);
+            deleteDirectory(BW);
+        }
+        if(RWN.exists()){
+            Bukkit.unloadWorld("RedWorldNether",false);
+            deleteDirectory(RWN);
+
+        }
+        if(BWN.exists()){
+            Bukkit.unloadWorld("BlueWorldNether",false);
+            deleteDirectory(BWN);
         }
     }
     boolean deleteDirectory(File directoryToBeDeleted) {

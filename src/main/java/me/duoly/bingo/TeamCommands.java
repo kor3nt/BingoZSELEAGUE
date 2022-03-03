@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class TeamCommands implements CommandExecutor {
+    Stream stream = new Stream();
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args ) {
         //admin - ustawianie kapitanow i wyswietlanie ich
         if (command.getName().equalsIgnoreCase("druzyna")) {
@@ -30,6 +31,7 @@ public class TeamCommands implements CommandExecutor {
                         Main.CapitanA = args[2];
                         Main.TeamA.add(Main.CapitanA);
                         admin.sendMessage(ChatColor.GREEN + "Pomyślnie dodałes kapitana teamu A");
+                        stream.Capitans();
                         return true;
                     }
 
@@ -42,6 +44,7 @@ public class TeamCommands implements CommandExecutor {
                         Main.CapitanB = args[2];
                         Main.TeamB.add(Main.CapitanB);
                         admin.sendMessage(ChatColor.GREEN + "Pomyślnie dodałes kapitana teamu B");
+                        stream.Capitans();
                         return true;
                     }
 

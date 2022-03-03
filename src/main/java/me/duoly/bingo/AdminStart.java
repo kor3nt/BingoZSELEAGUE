@@ -18,6 +18,7 @@ public class AdminStart implements CommandExecutor {
         this.config = config;
         this.plugin = plugin;
     }
+    Stream stream = new Stream();
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args ) {
         if(Main.gameStart) {
             sender.sendMessage(ChatColor.RED+"Nie możesz konfigurować drużyn podczas gry!");
@@ -92,6 +93,7 @@ public class AdminStart implements CommandExecutor {
                         if (args.length == 3) {
                             Main.tagNameA = args[2];
                             admin.sendMessage(ChatColor.GREEN + "Ustawiłes nazwe: " + Main.tagNameA);
+                            stream.TeamTag();
                         } else {
                             admin.sendMessage(ChatColor.RED + "Poprawne użycie: /admin ustaw <teamA/teamB> <tagTeamu");
                         }
@@ -105,6 +107,7 @@ public class AdminStart implements CommandExecutor {
                         if (args.length == 3) {
                             Main.tagNameB = args[2];
                             admin.sendMessage(ChatColor.GREEN + "Ustawiłes nazwe: " + Main.tagNameB);
+                            stream.TeamTag();
                         } else {
                             admin.sendMessage(ChatColor.RED + "Poprawne użycie: /admin ustaw <teamA/teamB> <tagTeamu");
                         }

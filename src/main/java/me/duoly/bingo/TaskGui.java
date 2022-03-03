@@ -473,12 +473,12 @@ public class TaskGui implements CommandExecutor, Listener {
                         item.setItemMeta(meta);
                         break;
                     case 39:
-                        item = new ItemStack(Material.BIRCH_SIGN,24);
+                        item = new ItemStack(Material.BIRCH_SIGN,16);
                         meta = item.getItemMeta();
-                        meta.setDisplayName(ChatColor.BOLD + "" + ChatColor.GREEN + "24 Brzozowych tabliczek");
+                        meta.setDisplayName(ChatColor.BOLD + "" + ChatColor.GREEN + "16 Brzozowych tabliczek");
                         meta.removeItemFlags();
                         lore.clear();
-                        lore.add(ChatColor.GRAY + "Zrób lub zdobądź dwadzieścia cztery brzozowe tabliczki");
+                        lore.add(ChatColor.GRAY + "Zrób lub zdobądź szesnaście brzozowe tabliczki");
                         meta.setLore(lore);
                         item.setItemMeta(meta);
                         break;

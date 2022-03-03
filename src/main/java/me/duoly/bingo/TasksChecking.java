@@ -28,6 +28,7 @@ public class TasksChecking implements Listener, CommandExecutor {
     public static Integer ScoreTeamA = 0;
     public static Integer ScoreTeamB = 0;
 
+
     @EventHandler
     public void CheckTask(InventoryClickEvent event) {
         if(event.getClickedInventory().equals(TaskGui.TaskRed)||event.getClickedInventory().equals(TaskGui.TaskBlue)) {

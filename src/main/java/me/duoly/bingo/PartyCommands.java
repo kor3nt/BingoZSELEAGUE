@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class PartyCommands implements CommandExecutor {
-
+    Stream stream = new Stream();
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args ){
         //user - komendy party
         if(command.getName().equalsIgnoreCase("party")){
@@ -36,6 +36,7 @@ public class PartyCommands implements CommandExecutor {
                     if(invitedPlayer != null && invitedPlayer.isOnline()){
                         Main.TeamA.add(invitedPlayer.getName());
                         player.sendMessage(ChatColor.GREEN + "Dodałeś gracza " + invitedPlayer.getName() + "do party");
+                        stream.Players();
                         return true;
                     }
                     player.sendMessage(ChatColor.RED + "Takiego gracza nie ma!");
@@ -50,6 +51,7 @@ public class PartyCommands implements CommandExecutor {
                     if(invitedPlayer != null && invitedPlayer.isOnline()){
                         Main.TeamB.add(invitedPlayer.getName());
                         player.sendMessage(ChatColor.GREEN + "Dodałeś gracza " + invitedPlayer.getName() + "do party");
+                        stream.Players();
                         return true;
                     }
                     player.sendMessage(ChatColor.RED + "Takiego gracza nie ma!");

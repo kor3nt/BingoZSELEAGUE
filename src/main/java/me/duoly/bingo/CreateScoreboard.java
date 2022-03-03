@@ -12,8 +12,9 @@ public class CreateScoreboard {
 
 
     private int text=0;
-
+    Stream stream = new Stream();
     public void createScorebord(Player player){
+        stream.Scoreboard();
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
         Objective obj = board.registerNewObjective("Game", "dummy", ChatColor.GOLD + "ZSE League");

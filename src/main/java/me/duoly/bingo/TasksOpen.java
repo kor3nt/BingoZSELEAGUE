@@ -17,10 +17,11 @@ public class TasksOpen implements CommandExecutor, Listener {
             return true;
         }
         if(cmd.getName().equalsIgnoreCase("zadania")){
-                if(Main.TeamA.contains(player.getName())){
-                    player.openInventory(TaskGui.TaskRed);
-                }else if(Main.TeamB.contains(player.getName())){
-                    player.openInventory(TaskGui.TaskBlue);
+                if(Main.TeamA.contains(player.getName())) player.openInventory(TaskGui.TaskRed);
+                else if(Main.TeamB.contains(player.getName())) player.openInventory(TaskGui.TaskBlue);
+                else if(player.isOp()){
+                    if(args[0].equalsIgnoreCase("teamA"))player.openInventory(TaskGui.TaskRed);
+                    else if(args[0].equalsIgnoreCase("teamB")) player.openInventory(TaskGui.TaskBlue);
                 }
         }
         return false;

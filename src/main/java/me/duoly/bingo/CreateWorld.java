@@ -12,6 +12,8 @@ public class CreateWorld implements CommandExecutor {
 
     public static World RedWorld;
     public static World BlueWorld;
+    public static World RedWorldNether;
+    public static World BlueWorldNether;
 
 
     @Override
@@ -25,6 +27,8 @@ public class CreateWorld implements CommandExecutor {
 
                 RedWorld = new WorldCreator("RedWorld").seed(seed).environment(World.Environment.NORMAL).type(WorldType.NORMAL).createWorld();
                 BlueWorld = new WorldCreator("BlueWorld").seed(seed).environment(World.Environment.NORMAL).type(WorldType.NORMAL).createWorld();
+                RedWorldNether = new WorldCreator("RedWorldNether").seed(seed).environment(World.Environment.NETHER).type(WorldType.NORMAL).createWorld();
+                BlueWorldNether = new WorldCreator("BlueWorldNether").seed(seed).environment(World.Environment.NETHER).type(WorldType.NORMAL).createWorld();
                 commandSender.sendMessage(ChatColor.RED + "Utworzyłeś światy!");
             }else commandSender.sendMessage(ChatColor.RED + "Nie możesz storzyć światu podczas gry!");
         }

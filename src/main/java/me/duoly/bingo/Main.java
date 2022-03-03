@@ -1,9 +1,6 @@
 package me.duoly.bingo;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.World;
-import org.bukkit.WorldCreator;
+import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -31,6 +28,8 @@ public final class Main extends JavaPlugin implements Listener {
     //Worlds
     File RW = new File("RedWorld");
     File BW = new File("BlueWorld");
+    File RWN = new File("RedWorldNether");
+    File BWN = new File("BlueWorldNether");
     public static World SpawnWorld;
 
     boolean deleteDirectory(File directoryToBeDeleted) {
@@ -65,6 +64,7 @@ public final class Main extends JavaPlugin implements Listener {
         TasksChecking.registerListener(this);
         PlayerJoin.registerListener(this);
         OnDeathPlayer.registerListener(this);
+        TeamNether.registerListener(this);
 
         if(config.get("spawn-world")!=null) SpawnWorld = new WorldCreator((String) config.get("spawn-world")).createWorld();
         else SpawnWorld = new WorldCreator("world").createWorld();
@@ -81,6 +81,16 @@ public final class Main extends JavaPlugin implements Listener {
             Bukkit.unloadWorld("BlueWorld",false);
             deleteDirectory(BW);
         }
+        if(RWN.exists()){
+            Bukkit.unloadWorld("RedWorldNether",false);
+            deleteDirectory(RWN);
+
+        }
+        if(BWN.exists()){
+            Bukkit.unloadWorld("BlueWorldNether",false);
+            deleteDirectory(BWN);
+        }
+
         for (Player player : Bukkit.getOnlinePlayers()){
             player.kickPlayer(ChatColor.BOLD+ " " +ChatColor.DARK_RED+"Dołącz jeszcze raz! To tylko restart");
         }

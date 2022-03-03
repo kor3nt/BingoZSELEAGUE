@@ -61,6 +61,9 @@ public class TeamCommands implements CommandExecutor {
                 }
 
                 return true;
+            }else if (args[0].equalsIgnoreCase("usun")) {
+                if (args[1].equalsIgnoreCase("teamA")) Main.TeamA.clear();
+                else if (args[1].equalsIgnoreCase("teamB")) Main.TeamB.clear();
             }
 
             else {

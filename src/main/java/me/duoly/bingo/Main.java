@@ -47,8 +47,8 @@ public final class Main extends JavaPlugin implements Listener {
         config.options().copyDefaults(true);
         saveConfig();
 
-        getCommand("druzyna").setExecutor(new TeamCommands());
-        getCommand("party").setExecutor(new PartyCommands());
+        getCommand("druzyna").setExecutor(new TeamCommands(this));
+        getCommand("party").setExecutor(new PartyCommands(this));
         getCommand("admin").setExecutor(new AdminStart(config,this));
         getCommand("rejoin").setExecutor(new Rejoin(this,config));
 

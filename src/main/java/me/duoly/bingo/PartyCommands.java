@@ -8,7 +8,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class PartyCommands implements CommandExecutor {
-    Stream stream = new Stream();
+    private Main plugin;
+    public PartyCommands(Main plugin) {
+        this.plugin = plugin;
+    }
+    Stream stream = new Stream(plugin);
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args ){
         //user - komendy party
         if(command.getName().equalsIgnoreCase("party")){

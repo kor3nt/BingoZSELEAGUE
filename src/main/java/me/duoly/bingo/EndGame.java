@@ -14,11 +14,12 @@ public class EndGame{
     File RWN = new File("RedWorldNether");
     File BWN = new File("BlueWorldNether");
     private Main plugin;
+    public static String winner;
     public EndGame(Main plugin) {
         this.plugin = plugin;
     }
     void End(){
-        String winner;
+
         if(TasksChecking.ScoreTeamA>TasksChecking.ScoreTeamB)winner = Main.tagNameA;
         else if(TasksChecking.ScoreTeamA<TasksChecking.ScoreTeamB) winner = Main.tagNameB;
         else winner = null;

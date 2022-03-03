@@ -18,7 +18,7 @@ public class AdminStart implements CommandExecutor {
         this.config = config;
         this.plugin = plugin;
     }
-    Stream stream = new Stream();
+    Stream stream = new Stream(plugin);
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args ) {
         if(Main.gameStart) {
             sender.sendMessage(ChatColor.RED+"Nie możesz konfigurować drużyn podczas gry!");

@@ -10,7 +10,11 @@ public class Stream {
 
     File LiveTime = new File("LiveTime.yml");
     FileConfiguration LiveTimeC = YamlConfiguration.loadConfiguration(LiveTime);
-
+    private Main plugin;
+    public Stream(Main plugin) {
+        this.plugin = plugin;
+    }
+    EndGame end = new EndGame(plugin);
     void TeamTag(){
         LiveTimeC.set("redtag",Main.tagNameA);
         LiveTimeC.set("bluetag",Main.tagNameB);
@@ -45,6 +49,14 @@ public class Stream {
     void Scoreboard(){
         LiveTimeC.set("redscore",TasksChecking.ScoreTeamA);
         LiveTimeC.set("bluescore",TasksChecking.ScoreTeamB);
+        try {
+            LiveTimeC.save(LiveTime);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    void Winner(){
+        LiveTimeC.set("winner",EndGame.winner);
         try {
             LiveTimeC.save(LiveTime);
         } catch (IOException e) {

@@ -17,9 +17,9 @@ public class PlayerJoin implements Listener{
     public PlayerJoin(Main plugin) {
         this.plugin = plugin;
     }
+    CreateScoreboard scb = new CreateScoreboard(plugin);
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        CreateScoreboard scb = new CreateScoreboard(plugin);
         Location loc = new Location(Main.SpawnWorld,Main.SpawnWorld.getSpawnLocation().getX(),Main.SpawnWorld.getSpawnLocation().getY(),Main.SpawnWorld.getSpawnLocation().getZ());
         Player player = (Player) event.getPlayer();
         scb.createBar();

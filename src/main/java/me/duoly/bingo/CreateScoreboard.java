@@ -10,9 +10,16 @@ import org.bukkit.scoreboard.*;
 
 public class CreateScoreboard {
 
-
+    private Main plugin;
+    public CreateScoreboard(Main plugin) {
+        this.plugin = plugin;
+    }
     private int text=0;
-    Stream stream = new Stream();
+    Stream stream = new Stream(plugin);
+
+
+
+
     public void createScorebord(Player player){
         stream.Scoreboard();
         ScoreboardManager manager = Bukkit.getScoreboardManager();
@@ -38,12 +45,8 @@ public class CreateScoreboard {
         double progress = 1.0;
         int timer = 100; //20 to jedna sekunda
         int countID;
-        private Main plugin;
         double time=progress/timer;
-        public CreateScoreboard(Main plugin) {
-        this.plugin = plugin;
 
-        }
 
         public void addPlayer(Player p){
             bar.addPlayer(p);

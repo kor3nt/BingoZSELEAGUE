@@ -60,6 +60,7 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("accept").setExecutor(new TasksChecking(this));
         getCommand("deny").setExecutor(new TasksChecking(this));
         getCommand("pomoc").setExecutor(new Help(this,config));
+        getCommand("add").setExecutor(new ScoreAdd(this));
 
         TasksChecking.registerListener(this);
         PlayerJoin.registerListener(this);

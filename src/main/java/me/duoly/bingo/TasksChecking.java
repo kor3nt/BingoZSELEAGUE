@@ -24,7 +24,7 @@ public class TasksChecking implements Listener, CommandExecutor {
     public TasksChecking(Main plugin) {
         this.plugin = plugin;
     }
-    CreateScoreboard scb = new CreateScoreboard(plugin);
+
     public static Integer ScoreTeamA = 0;
     public static Integer ScoreTeamB = 0;
 
@@ -32,6 +32,7 @@ public class TasksChecking implements Listener, CommandExecutor {
     @EventHandler
     public void CheckTask(InventoryClickEvent event) {
         if(event.getClickedInventory().equals(TaskGui.TaskRed)||event.getClickedInventory().equals(TaskGui.TaskBlue)) {
+            CreateScoreboard scb = new CreateScoreboard(plugin);
             Player player = (Player) event.getWhoClicked();
             if (Main.TeamA.contains(event.getWhoClicked().getName())) {
                 if(event.getCurrentItem()!=null) {
@@ -2893,7 +2894,7 @@ public class TasksChecking implements Listener, CommandExecutor {
             if(strings[1].equalsIgnoreCase("redteam")) {
                  Integer slot = Integer.parseInt(strings[0]);
                  ScoreTeamA++;
-
+                 CreateScoreboard scb = new CreateScoreboard(plugin);
                  TaskGui.TaskRed.setItem(slot, null);
                     for (String nick : Main.TeamA) {
                         Player p = Bukkit.getPlayer(nick);
@@ -2909,6 +2910,7 @@ public class TasksChecking implements Listener, CommandExecutor {
                     }
                 }
             }else if(strings[1].equalsIgnoreCase("blueteam")) {
+                CreateScoreboard scb = new CreateScoreboard(plugin);
                 Integer slot = Integer.parseInt(strings[0]);
                 ScoreTeamB++;
                 TaskGui.TaskBlue.setItem(slot, null);

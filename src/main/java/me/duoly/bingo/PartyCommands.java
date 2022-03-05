@@ -12,7 +12,7 @@ public class PartyCommands implements CommandExecutor {
     public PartyCommands(Main plugin) {
         this.plugin = plugin;
     }
-    Stream stream = new Stream(plugin);
+
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args ){
         //user - komendy party
         if(command.getName().equalsIgnoreCase("party")){
@@ -40,6 +40,7 @@ public class PartyCommands implements CommandExecutor {
                     if(invitedPlayer != null && invitedPlayer.isOnline()){
                         Main.TeamA.add(invitedPlayer.getName());
                         player.sendMessage(ChatColor.GREEN + "Dodałeś gracza " + invitedPlayer.getName() + "do party");
+                        Stream stream = new Stream(plugin);
                         stream.Players();
                         return true;
                     }
@@ -55,6 +56,7 @@ public class PartyCommands implements CommandExecutor {
                     if(invitedPlayer != null && invitedPlayer.isOnline()){
                         Main.TeamB.add(invitedPlayer.getName());
                         player.sendMessage(ChatColor.GREEN + "Dodałeś gracza " + invitedPlayer.getName() + "do party");
+                        Stream stream = new Stream(plugin);
                         stream.Players();
                         return true;
                     }

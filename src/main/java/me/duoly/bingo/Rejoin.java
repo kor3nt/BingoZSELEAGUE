@@ -26,6 +26,7 @@ public class Rejoin implements CommandExecutor {
                         if (Main.TeamA.contains(player.getName())) {
                             Location loc = new Location(CreateWorld.RedWorld, CreateWorld.RedWorld.getSpawnLocation().getX(), CreateWorld.RedWorld.getSpawnLocation().getY(), CreateWorld.RedWorld.getSpawnLocation().getZ());
                             player.setDisplayName(ChatColor.RED+Main.tagNameA+" "+ChatColor.RESET+player.getName());
+                            player.setPlayerListName(ChatColor.RED+Main.tagNameA+" "+ChatColor.RESET+player.getName());
                             player.teleport(loc);
                             scb.createScorebord(player);
                             player.sendTitle(ChatColor.GREEN + "Dołączasz do gry!", "", 10, 20, 10);
@@ -35,6 +36,7 @@ public class Rejoin implements CommandExecutor {
                         } else {
                             Location loc = new Location(CreateWorld.BlueWorld, CreateWorld.BlueWorld.getSpawnLocation().getX(), CreateWorld.BlueWorld.getSpawnLocation().getY(), CreateWorld.BlueWorld.getSpawnLocation().getZ());
                             player.setDisplayName(ChatColor.BLUE+Main.tagNameB+" "+ChatColor.RESET+player.getName());
+                            player.setPlayerListName(ChatColor.BLUE+Main.tagNameB+" "+ChatColor.RESET+player.getName());
                             player.teleport(loc);
                             scb.createScorebord(player);
                             player.sendTitle(ChatColor.GREEN + "Dołączasz do gry!", "", 10, 20, 10);

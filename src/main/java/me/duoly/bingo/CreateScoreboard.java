@@ -15,15 +15,15 @@ public class CreateScoreboard {
         this.plugin = plugin;
     }
     private int text=0;
-    Stream stream = new Stream(plugin);
-
-    EndGame end = new EndGame(plugin);
-
 
     public void createScorebord(Player player){
+        EndGame end = new EndGame(plugin);
         if(Timer.dogrywka){
             end.End();
+            Timer.progress = 0;
+            Timer.Rejoinprogress = 0;
         }
+        Stream stream = new Stream(plugin);
         stream.Scoreboard();
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
@@ -49,7 +49,6 @@ public class CreateScoreboard {
         int timer = 100; //20 to jedna sekunda
         int countID;
         double time=progress/timer;
-
 
         public void addPlayer(Player p){
             bar.addPlayer(p);

@@ -26,8 +26,8 @@ public class Timer{
     int RejoincountID;
     public static boolean dogrywka = false;
     BossBar bar;
-    double progress = 1.0;
-    double Rejoinprogress = 1.0;
+    public static double progress = 1.0;
+    public static double Rejoinprogress = 1.0;
     File LiveTime = new File("LiveTime.yml");
     FileConfiguration LiveTimeC = YamlConfiguration.loadConfiguration(LiveTime);
     public void addPlayer(Player player){
@@ -140,7 +140,7 @@ public class Timer{
                             }
                         }else end.End();
                     }
-                    if (TasksChecking.ScoreTeamA==25 || TasksChecking.ScoreTeamB==25){
+                    if (TasksChecking.ScoreTeamA==20 || TasksChecking.ScoreTeamB==20){
                         Bukkit.getScheduler().cancelTask(countID);
                         bar.setVisible(false);
                         end.End();
@@ -168,6 +168,7 @@ public class Timer{
                         Rejointimer = config.getInt("overtime");
                         Rejoinprogress = 1.0;
                         Rejointime = Rejoinprogress / Rejointimer;
+                        dogrywka=true;
                     }
                 }
                 if (timer == config.getInt("time-of-game")/2) {

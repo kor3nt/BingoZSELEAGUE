@@ -56,6 +56,8 @@ public class Timer{
                         timer--;
                         LiveTimeC.set("time",timer);
                         LiveTimeC.set("progress",progress);
+                        LiveTimeC.set("redscore",TasksChecking.ScoreTeamA);
+                        LiveTimeC.set("bluescore",TasksChecking.ScoreTeamB);
                         try {
                             LiveTimeC.save(LiveTime);
                         } catch (IOException e) {

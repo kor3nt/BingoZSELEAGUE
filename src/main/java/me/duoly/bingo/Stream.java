@@ -46,15 +46,7 @@ public class Stream {
             e.printStackTrace();
         }
     }
-    void Scoreboard(){
-        LiveTimeC.set("redscore",TasksChecking.ScoreTeamA);
-        LiveTimeC.set("bluescore",TasksChecking.ScoreTeamB);
-        try {
-            LiveTimeC.save(LiveTime);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
     void Winner(){
         LiveTimeC.set("winner",EndGame.winner);
         try {

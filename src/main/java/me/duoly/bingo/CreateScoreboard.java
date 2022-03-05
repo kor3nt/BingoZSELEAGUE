@@ -5,8 +5,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.*;
+
+import java.io.File;
 
 public class CreateScoreboard {
 
@@ -16,7 +20,10 @@ public class CreateScoreboard {
     }
     private int text=0;
 
+
     public void createScorebord(Player player){
+
+
         EndGame end = new EndGame(plugin);
         if(Timer.dogrywka){
             end.End();
@@ -24,7 +31,6 @@ public class CreateScoreboard {
             Timer.Rejoinprogress = 0;
         }
         Stream stream = new Stream(plugin);
-        stream.Scoreboard();
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
         Objective obj = board.registerNewObjective("Game", "dummy", ChatColor.GOLD + "ZSE League");
@@ -52,6 +58,9 @@ public class CreateScoreboard {
 
         public void addPlayer(Player p){
             bar.addPlayer(p);
+        }
+        public void removePlayer(){
+            for (Player p : Bukkit.getOnlinePlayers()) bar.removePlayer(p);
         }
         public BossBar getBar(){
             return bar;
@@ -104,7 +113,7 @@ public class CreateScoreboard {
                                     break;
                             }
                         }
-                    }else bar.setVisible(false);
+                    }else removePlayer();
                 }
             }, 0L, 1L);
 

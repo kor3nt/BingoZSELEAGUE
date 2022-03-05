@@ -25,12 +25,13 @@ public class TasksChecking implements Listener, CommandExecutor {
         this.plugin = plugin;
     }
 
-    public static Integer ScoreTeamA = 0;
-    public static Integer ScoreTeamB = 0;
+    public static int ScoreTeamA = 0;
+    public static int ScoreTeamB = 0;
 
 
     @EventHandler
     public void CheckTask(InventoryClickEvent event) {
+        if(event.getClickedInventory().equals(null)) return;
         if(event.getClickedInventory().equals(TaskGui.TaskRed)||event.getClickedInventory().equals(TaskGui.TaskBlue)) {
             CreateScoreboard scb = new CreateScoreboard(plugin);
             Player player = (Player) event.getWhoClicked();

@@ -21,13 +21,13 @@ Następnie jak wszyscy są gotowi to wpisujesz komendę
 `/admin start`
 Jak nie będą gotowe party to wyrzuci ci napis ze nie ma wystarczającej ilości zawodników 
 
-Gracze będą mieli zadania pod komenda /zadania 
+Gracze będą mieli zadania pod komenda `/zadania`, możesz sprawdzać pod komendą `/zadania <teamA/teamB>`
 
 Ty masz jedynie sprawdzać zadania typu budowania, powiadomienie masz na chacie, musisz w nie kliknąć 
 
 Akceptujesz i odrzucasz zadania po przez kliknięcie na wiadomość na chacie 
 
-Dodajesz punkty komenda /add <teamA/teamB> 
+Dodajesz punkty komenda `/add <teamA/teamB>`
 
 
 # Dla graczy:

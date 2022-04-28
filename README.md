@@ -1,5 +1,6 @@
 # BingoZSELEAGUE
 
+## Dla Administratora:
 Przy włączaniu serwera piszesz `/world`
 
 Później używasz komend: 
@@ -30,7 +31,7 @@ Akceptujesz i odrzucasz zadania po przez kliknięcie na wiadomość na chacie
 Dodajesz punkty komenda `/add <teamA/teamB>`
 
 
-# Dla graczy:
+## Dla graczy:
 Wchodząc na serwer musicie poinformować administratora kto jest kapitanem drużyny, następnie jak administrator wam nada uprawnienia, kapitan wpisuje komendę `/party zaproś nick_zawodnika` i dodaje zawodników. Gdy już są gotowi najlepiej aby napisać to na chacie w grze aby administrator mógł rozpocząć grę.
 
 Pod komenda `/zadania` macie dostępna swoją plansze. 

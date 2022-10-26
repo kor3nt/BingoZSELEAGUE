@@ -1,5 +1,5 @@
 # BingoZSELEAGUE
-Plugin do gry Minecraft. Został stworzony na rzecz turnieju ZSE LEAGUE. Tryb gry to Bingo
+Plugin do gry Minecraft. Został stworzony na rzecz turnieju ZSE LEAGUE.
 
 ## Dla Administratora:
 Przy włączaniu serwera piszesz `/world`
